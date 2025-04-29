@@ -11,17 +11,23 @@
    
 </head>
 <body> <!-- Website Header with Navigation Menu -->
-   <header>
-       <h1>HerWellness Fund</h1>
-       <nav>
-           <ul>
-               <li><a href="index.html">Home</a></li>
-               <li><a href="crowdfunding.html">Fundraisers</a></li>
-               <li><a href="community.html">Testimonials</a></li>
-               <li><a href="contactpage.html">Contact us</a></li>
-           </ul>
-       </nav>
-   </header>
+    <header>
+        <h1>HerWellness Fund</h1>
+        <nav>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li>
+                <a href="#">Fundraisers</a>
+                <ul>
+                  <li><a href="crowdfunding.html">View All</a></li>
+                </ul>
+              </li>
+              <li><a href="community.html">Community</a></li>
+              <li><a href="contactpage.html">Contact</a></li>
+              <li><a href="saved.html">Saved</a></li>
+            </ul>
+          </nav>
+    </header>
    <!-- Testimonials Section -->
    <section class="testimonial block">
       <!-- Community Support Image -->
@@ -56,9 +62,9 @@
        <img src="https://images.pexels.com/photos/4100428/pexels-photo-4100428.jpeg" 
     alt="Therapy session" 
     class="therapy-image">
-    <form id="commentForm">
+    <form id="commentForm" onsubmit="submitComment(event)">
         <label for="userComment">Leave a comment:</label>
-        <textarea id="userComment" rows="4" required></textarea>
+        <textarea id="userComment" placeholder="Leave your comment here..."></textarea>
         <button type="submit">Submit</button>
     </form>
     

@@ -14,12 +14,18 @@
         <h1>HerWellness Fund</h1>
         <nav>
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="crowdfunding.html">Fundraisers</a></li>
-                <li><a href="community.html">Testimonials</a></li>
-                <li><a href="contactpage.html">Contact us</a></li>
+              <li><a href="index.html">Home</a></li>
+              <li>
+                <a href="#">Fundraisers</a>
+                <ul>
+                  <li><a href="crowdfunding.html">View All</a></li>
+                </ul>
+              </li>
+              <li><a href="community.html">Community</a></li>
+              <li><a href="contactpage.html">Contact</a></li>
+              <li><a href="saved.html">Saved</a></li>
             </ul>
-        </nav>
+          </nav>
     </header>
     <!-- Fundraisers Section -->
 <section class="fundraisers">
@@ -46,6 +52,7 @@
             <td> <a href="https://www.buymeacoffee.com/demo" class="btn" target="_blank">Donate via Buy Me a Coffee</a></td>
         </tr>
     </table>
+    <button onclick="likeItem(this)" data-likes="0">Like (0)</button>
 
 </section>
 <!-- Individual Campaign: Sara's Therapy Fund -->
