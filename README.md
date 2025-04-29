@@ -24,4 +24,8 @@ To run this project locally:
 1. Clone the repository:
    ```bash
    git clone https://github.com/aishabtidon/HerWellness.git
+This project was created by Aisha Abtidon as part of the HyperionDev Web Development Bootcamp.  
+For code review and support, please contact [careers@hyperiondev.com](mailto:careers@hyperiondev.com).
+
+
 
