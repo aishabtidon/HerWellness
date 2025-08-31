@@ -1,110 +1,83 @@
 <!--crowdfunding page-->
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>campaigns</title>
-    <link rel="stylesheet" href="herwellness.css">
-    <script src="main.js" ></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HerWellness Fund</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="herwellness.css">
 </head>
-<body> <!-- Website Header with Navigation Menu -->
-    <header>
-        <h1>HerWellness Fund</h1>
-        <nav>
-            <ul>
-              <li><a href="index.html">Home</a></li>
-              <li>
-                <a href="#">Fundraisers</a>
-                <ul>
-                  <li><a href="crowdfunding.html">View All</a></li>
-                </ul>
-              </li>
-              <li><a href="community.html">Community</a></li>
-              <li><a href="contactpage.html">Contact</a></li>
-              <li><a href="saved.html">Saved</a></li>
-            </ul>
-          </nav>
-    </header>
-    <!-- Fundraisers Section -->
-<section class="fundraisers">
-    <h2>Support Mental Health campaigns</h2>
-    <p>Your donation can make a difference in someone's mental wellness journey.</p>
-     <!-- Table displaying different crowdfunding campaigns -->
-    <table>
-        <tr>
-            <th>Campaign</th>
-            <th>Goal (£)</th>
-            <th>Raised (£)</th>
-            <th>Donate</th>
-        </tr>
-        <tr>
-            <td>Help Sara get therapy and feed her child</td>
-            <td>£3,000</td>
-            <td>£950</td>
-            <td> <a href="https://www.buymeacoffee.com/demo" class="btn" target="_blank">Donate via Buy Me a Coffee</a></td>
-        </tr>
-        <tr>
-            <td>Help Halima in her healing journey</td>
-            <td>£1,500</td>
-            <td>£550</td>
-            <td> <a href="https://www.buymeacoffee.com/demo" class="btn" target="_blank">Donate via Buy Me a Coffee</a></td>
-        </tr>
-    </table>
-    <button onclick="likeItem(this)" data-likes="0">Like (0)</button>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html" aria-label="HerWellness home">
+        <span class="logo">HW</span>
+        <span class="name">HerWellness Fund</span>
+      </a>
+      <nav aria-label="Main">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="crowdfunding_clean.html">Fundraisers</a></li>
+          <li><a href="community_clean.html">Community</a></li>
+          <li><a href="contactpage_clean.html">Contact</a></li>
+          <li><a href="saved.html">Saved</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="section crowdfund">
+  <div class="container">
+    <h2>Support Mental Health Campaigns</h2>
+    <p class="lead">Your donation can help single mothers access therapy, recovery, and community support.</p>
+    <div class="grid cols-2">
+      <article class="card">
+        <h3>Help Sara get therapy & feed her child</h3>
+        <p>Sara is a single mother struggling with depression and anxiety. She needs therapy to heal and provide for her child.</p>
+        <div class="stats">Goal: £3,000 · Raised: £950</div>
+        <div class="actions">
+          <a href="https://www.buymeacoffee.com/demo" class="donate-btn" target="_blank">Donate</a>
+          <button class="btn ghost" onclick="import('./main.js').then(m=>m.saveForLater('Sara\'s Therapy Fund'))">Save</button>
+        </div>
+      </article>
 
+      <article class="card">
+        <h3>Help Halima in her healing journey</h3>
+        <p>Halima is seeking support for a trauma recovery program to rebuild her life with strength and hope.</p>
+        <div class="stats">Goal: £1,500 · Raised: £550</div>
+        <div class="actions">
+          <a href="https://www.buymeacoffee.com/demo" class="donate-btn" target="_blank">Donate</a>
+          <button class="btn ghost" onclick="import('./main.js').then(m=>m.saveForLater('Halima\'s Recovery'))">Save</button>
+        </div>
+      </article>
+    </div>
+  </div>
 </section>
-<!-- Individual Campaign: Sara's Therapy Fund -->
-<div class="campaign">
-    <h3>Help Sara get therapy and feed her child</h3>
-    <p>Sara is a single mother struggling with depression and anxiety. She needs therapy to get better and take care of her child.</p>
-   <!-- List of ways people can help --> 
-    <h4>How You Can Help:</h4>
-    <ul>
-        <li>Donate to her therapy fund</li>
-        <li>Share her story on social media</li>
-        <li>Encourage her with kind words</li>
-    </ul>
 
-    <p><strong>Goal:</strong> £3,000 | <strong>Raised:</strong> £950</p>
-    <p>Donate directly via buymeacoffe:</p>
-    <a href="https://www.buymeacoffee.com/demo" class="btn" target="_blank">Donate via Buy Me a Coffee</a>
-    <button class="save-btn" data-title="Sara's Therapy Fund">Save for Later</button>
-</div>
-<!-- Individual Campaign: Halima's Recovery Journey -->
-<div class="campaign">
-    <h3>Help Halima in her healing journey</h3>
-    <p>Halima is seeking support for a trauma recovery program.</p>
-
-    <h4>How You Can Help:</h4>
-    <ul>
-        <li>Contribute to her recovery program</li>
-        <li>Spread awareness about mental health</li>
-        <li>Offer emotional support</li>
-    </ul>
-
-    <p><strong>Goal:</strong> £1,500 | <strong>Raised:</strong> £550</p>
-    <p>Donate directly via buy me a coffe:</p>
-    <a href="https://www.buymeacoffee.com/demo" class="btn" target="_blank">Donate via Buy Me a Coffee</a>
-
-</div>
-</section>
-<!-- Section to Start a New Fundraiser -->
-<section class="start-fundraiser">
-<h2>Start Your Own Fundraiser</h2>
-<p>Need support on your journey? Create a campaign and share your story.</p>
-<!-- Donate Button -->
-<p>Donate directly via buy me a coffe:</p>
-<a href="https://www.buymeacoffee.com/demo" class="btn" target="_blank">Donate via Buy Me a Coffee</a>
-
-<!-- Crowdfunding Concept Image -->
-<img src="https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg" alt="Crowdfunding concept">
+<section class="section crowdfund">
+  <div class="container">
+    <h2>Start Your Own Fundraiser</h2>
+    <p class="lead">Need support on your journey? Share your story and raise funds to access the care you deserve.</p>
+    <a href="https://www.buymeacoffee.com/demo" class="donate-btn" target="_blank">Start Fundraiser</a>
+    <img src="https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg" alt="Crowdfunding concept" class="therapy-image">
+  </div>
 </section>
 <!-- Website Footer -->
-<footer>
-    <p>&copy; 2025 HerWellness Fund | <a href="mailto:support@herwellnessfund.com">Email Us</a></p>
-</footer>
 
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="container" style="display:grid;gap:1rem;grid-template-columns:2fr 1fr 1fr">
+      <div>
+        <strong>HerWellness Fund</strong>
+        <p>Empowering single mothers through community‑funded mental health support.</p>
+      </div>
+      <div>
+        <p>&copy; 2025 HerWellness Fund | <a href="mailto:support@herwellnessfund.com">Email Us</a></p>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
