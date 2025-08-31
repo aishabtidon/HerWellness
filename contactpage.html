@@ -1,77 +1,91 @@
-<!-- community and testemontial section -->
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>HerWellness's Community & testimonials</title>
-   <link rel="stylesheet" href="herwellness.css">
-   <script src="main.js" ></script>
-   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-   
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HerWellness Fund</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="herwellness.css">
 </head>
-<body> <!-- Website Header with Navigation Menu -->
-    <header>
-        <h1>HerWellness Fund</h1>
-        <nav>
-            <ul>
-              <li><a href="index.html">Home</a></li>
-              <li>
-                <a href="#">Fundraisers</a>
-                <ul>
-                  <li><a href="crowdfunding.html">View All</a></li>
-                </ul>
-              </li>
-              <li><a href="community.html">Community</a></li>
-              <li><a href="contactpage.html">Contact</a></li>
-              <li><a href="saved.html">Saved</a></li>
-            </ul>
-          </nav>
-    </header>
-   <!-- Testimonials Section -->
-   <section class="testimonial block">
-      <!-- Community Support Image -->
-       <img src="https://images.pexels.com/photos/3184427/pexels-photo-3184427.jpeg" alt="Support group" class="therapy-image" >
-       <h2>Community voices</h2>
-       <button id="toggleTestimonial">Toggle Testimonials</button>
-<div id="testimonialBox">This is a testimonial...</div>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html" aria-label="HerWellness home">
+        <span class="logo">HW</span>
+        <span class="name">HerWellness Fund</span>
+      </a>
+      <nav aria-label="Main">
+        <ul>
+          <li><a href="index_clean.html">Home</a></li>
+          <li><a href="crowdfunding_clean.html">Fundraisers</a></li>
+          <li><a href="community_clean.html">Community</a></li>
+          <li><a href="contactpage_clean.html">Contact</a></li>
+          <li><a href="saved.html">Saved</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  
+  <main>
+    <section class="section">
+      <div class="container contact">
+        <h2>Contact</h2>
+        <p class="lead">We’d love to hear from you. Choose the option that fits best or send a message using the form.</p>
 
-<script>
-    $("#toggleTestimonial").click(function(){
-        $("#testimonialBox").toggle();
-    });
-</script>
+        <div class="contact-grid">
+          <div class="card">
+            <h3>Email</h3>
+            <p class="muted">General enquiries, support & collaboration.</p>
+            <p><a class="link" href="mailto:support@herwellnessfund.com">support@herwellnessfund.com</a></p>
+          </div>
+          <div class="card">
+            <h3>Press</h3>
+            <p class="muted">Media requests and interviews.</p>
+            <p><a class="link" href="mailto:press@herwellnessfund.com">press@herwellnessfund.com</a></p>
+          </div>
+          <div class="card">
+            <h3>Partnerships</h3>
+            <p class="muted">Therapists, NGOs & community groups.</p>
+            <p><a class="link" href="mailto:partners@herwellnessfund.com">partners@herwellnessfund.com</a></p>
+          </div>
+        </div>
 
-       <!-- Testimonial 1 -->
-       <p>stories from single mothers who have received support.</p>
-       
-       <blockquote>"Being a single mom is tough, but this community gave me hope and encouragement!"</blockquote>
-       <p>By: Jasmine p.</p>
-       <!-- Testimonial 2 -->
-       <blockquote>"This platform helped me raise enough funds for therapy. I am forever grateful!"</blockquote>
-       <p>- Maria L.</p>
-      <!-- How People Can Help -->
-       <h3>How You Can Help</h3>
-       <ul>
-           <li>Share fundraisers on social media</li>
-           <li>Donate to a campaign</li>
-           <li>Join our support group and Encourage others</li>
-       </ul>
-       </section>
-   <!-- Therapy Session Image -->
-       <img src="https://images.pexels.com/photos/4100428/pexels-photo-4100428.jpeg" 
-    alt="Therapy session" 
-    class="therapy-image">
-    <form id="commentForm">
-        <label for="userComment">Leave a comment:</label>
-        <textarea id="userComment" rows="4" required></textarea>
-        <button type="submit">Submit</button>
-    </form>
-    
-   <!-- Website Footer -->
-   <footer>
-    <p>&copy; 2025 HerWellness Fund | <a href="mailto:support@herwellnessfund.com">Email Us</a></p>
-</footer>
+        <form class="contact-form" id="contactForm">
+          <div class="two-col">
+            <div>
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+          </div>
+          <label for="topic">Topic</label>
+          <select id="topic" name="topic">
+            <option>General</option>
+            <option>Press</option>
+            <option>Partnership</option>
+            <option>Support</option>
+          </select>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="6" required></textarea>
+          <button type="submit" class="btn">Send message</button>
+        </form>
+      </div>
+    </section>
+  </main>
 
+  <footer>
+    <div class="container" style="display:grid;gap:1rem;grid-template-columns:2fr 1fr 1fr">
+      <div>
+        <strong>HerWellness Fund</strong>
+        <p>Empowering single mothers through community‑funded mental health support.</p>
+      </div>
+      <div>
+        <p>&copy; 2025 HerWellness Fund | <a href="mailto:support@herwellnessfund.com">Email Us</a></p>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
