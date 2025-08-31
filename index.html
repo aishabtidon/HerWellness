@@ -1,54 +1,162 @@
 <!--homepage-->
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Her Wellness fund</title>
-    <link rel="stylesheet" href="herwellness.css">
-    <script src="main.js" ></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HerWellness Fund — Minimal Clean Homepage</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --ink-900:#171717; --ink-800:#1f1f1f;
+      --accent:#c7b299; --accent-600:#b89f88;
+      --bg:#faf7f2; --surface:#ffffff; --line:#e9e6e1;
+      --maxw:1180px;
+      --r:16px; --r-sm:10px; --r-lg:24px;
+      --shadow-1:0 6px 20px rgba(0,0,0,.06);
+      --shadow-2:0 12px 32px rgba(0,0,0,.10);
+      --step--1: clamp(.9rem, .85rem + .2vw, 1rem);
+      --step-0:  clamp(1rem, .9rem + .4vw, 1.125rem);
+      --step-1:  clamp(1.25rem, 1.1rem + .8vw, 1.5rem);
+      --step-2:  clamp(1.6rem, 1.2rem + 1.2vw, 2rem);
+      --step-3:  clamp(2rem, 1.6rem + 2vw, 2.6rem);
+      --step-4:  clamp(2.6rem, 2rem + 3vw, 3.2rem);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; background:var(--bg);
+      color:var(--ink-800);
+      font-family:"Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      line-height:1.65;
+    }
+    h1,h2,h3{ font-family:"Cormorant Garamond", serif; color:var(--ink-800); letter-spacing:.01em }
+    h1{font-weight:700} h2{font-weight:600}
+    a{ color:inherit }
+    .container{max-width:var(--maxw); margin-inline:auto; padding-inline:1.25rem}
+    .section{padding:4rem 0; border-top:1px solid var(--line)}
+    .section:first-of-type{border-top:none}
+    /* Header */
+    .site-header{ position:sticky; top:0; z-index:50; background:var(--ink-900); border-bottom:1px solid rgba(255,255,255,.06) }
+    .nav{ display:flex; align-items:center; justify-content:space-between; padding:.8rem 0 }
+    .brand{ display:flex; align-items:center; gap:.75rem; color:#fff; text-decoration:none }
+    .logo{ padding:.5rem .75rem; border-radius:6px; background:var(--ink-900); color:var(--accent); border:1px solid rgba(255,255,255,.12); font-weight:700; letter-spacing:.05em }
+    nav ul{ list-style:none; display:flex; gap:1rem; margin:0; padding:0 }
+    nav a{ color:#fff; text-decoration:none; padding:.45rem .7rem; border-radius:6px }
+    nav a:hover{ background:rgba(255,255,255,.06) }
+    /* Hero */
+    .hero{ background:var(--surface); border-bottom:1px solid var(--line); padding-block:5rem 3rem }
+    .hero-wrap{ display:grid; grid-template-columns: 1.1fr .9fr; gap:1.25rem; align-items:center }
+    @media (max-width:980px){ .hero-wrap{ grid-template-columns:1fr } }
+    .kicker{ display:inline-block; padding:.3rem .6rem; border:1px solid var(--line); color:var(--ink-800); font-size:var(--step--1) }
+    .hero p{ color:#6b6b6b; max-width:60ch }
+    .badges{ display:flex; gap:.5rem; flex-wrap:wrap; margin-top:.75rem }
+    .badge{ background:var(--accent); color:var(--ink-900); padding:.3rem .6rem; border-radius:999px; font-size:var(--step--1); font-weight:600 }
+    .hero-actions{ display:flex; gap:.6rem; flex-wrap:wrap; margin-top:1rem }
+    .hero-card{ background:var(--surface); border:1px solid var(--line); border-radius:var(--r-lg); box-shadow:var(--shadow-2); padding:1rem }
+    .hero-card img{ width:100%; height:clamp(240px,32vw,380px); object-fit:cover; border-radius:var(--r) }
+    /* Buttons */
+    .btn{ background:var(--accent); color:var(--ink-900); border:none; border-radius:999px; padding:.8rem 1.2rem; font-weight:600; text-decoration:none; display:inline-flex; align-items:center; justify-content:center; cursor:pointer; transition:background .2s }
+    .btn:hover{ background:var(--accent-600) }
+    .btn.ghost{ background:transparent; color:var(--ink-800); border:1px solid var(--ink-800) }
+    .btn.ghost:hover{ background:var(--ink-800); color:#fff }
+    /* Cards grid */
+    .grid{ display:grid; gap:1rem; align-items:start }
+    .cols-3{ grid-template-columns:repeat(3,minmax(0,1fr)) }
+    @media (max-width:900px){ .cols-3{ grid-template-columns:1fr 1fr } }
+    @media (max-width:680px){ .cols-3{ grid-template-columns:1fr } }
+    .card{ background:var(--surface); border:1px solid var(--line); border-radius:var(--r); box-shadow:var(--shadow-1); padding:1rem }
+    .card img{ width:100%; height:clamp(180px,26vw,240px); object-fit:cover; border-radius:10px }
+    .meta{ color:#6f6a63; font-size:var(--step--1) }
+    /* Footer */
+    footer{ background:var(--ink-900); color:#fff; margin-top:3rem; padding:2rem 0 }
+    footer a{ color:var(--accent) }
+    footer a:hover{ color:var(--accent-600) }
+  </style>
 </head>
-<body> <!-- Website Header with Navigation Menu -->
-    <header>
-       <h1>HerWellness Fund</h1>
-<nav aria-label="Main navigation">
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li>
-        <a href="#" aria-haspopup="true" aria-expanded="false">Fundraisers</a>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="#" class="brand"><span class="logo">HW</span><span class="name">HerWellness Fund</span></a>
+      <nav aria-label="Main">
         <ul>
-          <li><a href="crowdfunding.html">View All</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="crowdfunding_clean.html">Fundraisers</a></li>
+          <li><a href="community_clean.html">Community</a></li>
+          <li><a href="contactpage_clean.html">Contact</a></li>
+          <li><a href="#">Saved</a></li>
         </ul>
-      </li>
-      <li><a href="community.html">Community</a></li>
-      <li><a href="contactpage.html">Contact</a></li>
-      <li><a href="saved.html">Saved</a></li>
-    </ul>
-</nav>
-    </header>
-<!-- Hero Section (Main Welcome Section) -->
-<section class="hero">
-    <h2>Welcome to HerWellness Fund </h2>
-    <p>Empowering women through community,support,and mental health crowdfunding.</p>
-    <p>Supporting single mother's mental health</p>
-    <img src="https://images.pexels.com/photos/1648376/pexels-photo-1648376.jpeg" alt="Mother holding child and smiling in a park" class="main-image">
-     <!-- Donate Now Button -->  
-    <a href="crowdfunding.html" class="btn">Donate Now</a>
-</section>
-<!-- Mission Statement Section -->
-<section class="mission">
-    <h2>Our mission</h2>
-    <p>We believe every woman deserves an access to mental health support and we especially support single mothers.Our platform helps women
-       raise funds for therapy, connect with a community of supporters, and access valuable resources.
-    </p>
-    <p>Learn more at our <!-- External link to a mental health resource -->
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-wrap">
+        <div>
+          <span class="kicker">Support • Heal • Thrive</span>
+          <h1>Back her healing journey with <em>community‑funded</em> mental health care.</h1>
+          <p>We help single mothers access therapy and peer support. Your generosity turns barriers into breakthroughs.</p>
+          <div class="badges">
+            <span class="badge">Transparent goals</span>
+            <span class="badge">Direct support</span>
+            <span class="badge">Real stories</span>
+          </div>
+          <div class="hero-actions">
+            <a href="#" class="btn">Explore campaigns</a>
+            <a href="#" class="btn ghost">Start a fundraiser</a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <img src="https://images.pexels.com/photos/1648376/pexels-photo-1648376.jpeg" alt="Smiling mother with child in a sunlit room">
+          <p class="meta">Every contribution brings affordable therapy one step closer.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>Featured Campaigns</h2>
+        <p class="meta" style="margin-bottom:1rem">Give with confidence. These campaigns are verified and actively progressing toward their goals.</p>
+        <div class="grid cols-3">
+          <article class="card">
+            <img src="https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg" alt="Group support meeting">
+            <h3>Therapy for Sara & child</h3>
+            <p class="meta">Goal £3,000 · Raised £950</p>
+            <div><a class="btn" href="#">Donate</a></div>
+          </article>
+          <article class="card">
+            <img src="https://images.pexels.com/photos/4100428/pexels-photo-4100428.jpeg" alt="Therapist and patient talking">
+            <h3>Halima's recovery program</h3>
+            <p class="meta">Goal £1,500 · Raised £550</p>
+            <div><a class="btn" href="#">Donate</a></div>
+          </article>
+          <article class="card">
+            <img src="https://images.pexels.com/photos/3184427/pexels-photo-3184427.jpeg" alt="Uplifting group celebration">
+            <h3>Community childcare fund</h3>
+            <p class="meta">Goal £2,000 · Raised £1,240</p>
+            <div><a class="btn" href="#">Donate</a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="display:grid;gap:1rem;grid-template-columns:2fr 1fr 1fr">
+      <div>
+        <strong>HerWellness Fund</strong>
+        <p>Empowering single mothers through community‑funded mental health support.</p>
+      </div>
+      <p>Learn more at our <!-- External link to a mental health resource -->
          <a href="https://www.who.int/mental_health" target="_blank">Mental Health Resource Page</a>.</p>
     </section>
      <!-- Website Footer -->
     <footer>
+    <div>
         <p>&copy; 2025 HerWellness Fund | <a href="mailto:support@herwellnessfund.com">Email Us</a></p>
-    </footer>
+    </div>
+  </footer>
 </body>
 </html>
+
